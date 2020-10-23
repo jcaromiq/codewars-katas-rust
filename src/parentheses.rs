@@ -1,7 +1,14 @@
 //https://www.codewars.com/kata/5f7c38eb54307c002a2b8cc8/train/rust
 
 fn remove_parentheses(s: &str) -> String {
-    todo!();
+    let mut p = 0;
+    s.chars()
+        .filter(|c| match c {
+            '(' => { p += 1; false },
+            ')' => { p -= 1; false },
+            _ => p == 0,
+        })
+        .collect()
 }
 
 #[cfg(test)]
