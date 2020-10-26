@@ -1,6 +1,12 @@
+
 //https://www.codewars.com/kata/57eadb7ecd143f4c9c0000a3/train/rust
 fn abbrev_name(name: &str) -> String {
-    // code away
+    name.split(' ')
+        .map(|x| x.chars().next().unwrap())
+        .map(|x| x.to_string())
+        .map(|x| x.to_uppercase())
+        .collect::<Vec<_>>()
+        .join(".")
 }
 
 // Rust test example:
