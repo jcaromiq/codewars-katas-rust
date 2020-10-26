@@ -1,9 +1,12 @@
 //https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/rust
 
+
+use std::cmp::Reverse;
+
 fn descending_order(x: u64) -> u64 {
     let mut chars: Vec<char> = x.to_string().chars().collect();
 
-    chars.sort_by(|a, b| b.cmp(a));
+    chars.sort_by_key(|&b| Reverse(b));
     chars.into_iter().collect::<String>().parse().unwrap()
 }
 
