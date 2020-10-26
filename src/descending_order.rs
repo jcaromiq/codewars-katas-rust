@@ -1,12 +1,10 @@
 //https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/rust
 
 fn descending_order(x: u64) -> u64 {
-    let mut v: Vec<u32> = x.to_string().chars()
-        .map(|n| n.to_digit(10).unwrap())
-        .collect::<Vec<u32>>();
-    v.sort_by(|n, y| y.partial_cmp(n).unwrap());
+    let mut chars: Vec<char> = x.to_string().chars().collect();
 
-    v.iter().map(|n| n.to_string()).collect::<String>().parse().unwrap()
+    chars.sort_by(|a, b| b.cmp(a));
+    chars.into_iter().collect::<String>().parse().unwrap()
 }
 
 #[test]
