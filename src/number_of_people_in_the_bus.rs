@@ -1,6 +1,10 @@
 //https://www.codewars.com/kata/5648b12ce68d9daa6b000099/train/rust
 
-fn number(bus_stops: &[(i32, i32)]) -> i32 {}
+fn number(bus_stops: &[(i32, i32)]) -> i32 {
+    bus_stops.iter()
+        .map(|(into, out)| into-out)
+        .sum()
+}
 
 #[test]
 fn returns_expected() {
