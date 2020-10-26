@@ -3,8 +3,11 @@
 fn parts_sums(ls: &[u64]) -> Vec<u64> {
     let mut res = vec![];
 
-    for (i, _) in ls.iter().enumerate() {
-        res.push(ls.split_at(i).1.iter().sum());
+    for (index, _) in ls.iter().enumerate() {
+        let (_, tail) = ls.split_at(index);
+        let sum_tail: u64 = tail.iter().sum();
+        res.push(sum_tail);
+
     }
     res.push(0);
     res
