@@ -1,7 +1,20 @@
 // https://www.codewars.com/kata/58f5c63f1e26ecda7e000029/train/rust
 
 fn wave(s: &str) -> Vec<String> {
-    unimplemented!();
+    let mut result = vec![];
+    for n in 1..s.len() {
+        let r = s.chars()
+            .map(|(i, c)| {
+                if i == n {
+                    c.to_uppercase().collect::<Vec<_>>()
+                } else {
+                    c.to_lowercase().collect::<Vec<_>>()
+                }
+            })
+            .collect::<String>();
+        result.push(r);
+    }
+    result
 }
 
 
